@@ -14,9 +14,10 @@ import matplotlib.pyplot as plt
 import time
 
 # Load data from file
-mat = scipy.io.loadmat('./datasets/ecg/ssel102m.mat')
-min = 0
-max = mat['val'][1].size  #225000 points
+mat = scipy.io.loadmat('./datasets/ecg/sel102m.mat')
+min = 50000
+#max = mat['val'][1].size  #225000 points
+max = 60000
 
 ts = np.array(mat['val'][1][min:max], dtype=float)
 plt.plot(ts)
@@ -34,4 +35,4 @@ best_discord = mp.find_best_discord(profile)
 # Position of best discord
 print(best_discord)
 
-mp.plot_motif(ts, profile, index, m)
+mp.plot_discord(ts, profile, index, m)
